@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Gaming - My Hobby</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid #fa4454;
+        }
+        
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fa4454, #ff4655);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background: #1e293b;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background: #334155;
+            color: #fa4454;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin: 4rem 0;
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        section h2 {
+            color: #1e293b;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #fa4454, #ff4655);
+            border-radius: 2px;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .reverse .content-grid {
+            direction: rtl;
+        }
+        
+        .reverse .text-content {
+            direction: ltr;
+        }
+        
+        .text-content h3 {
+            color: #334155;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .text-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .text-content li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .text-content li::before {
+            content: '•';
+            color: #fa4454;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        .text-content strong {
+            color: #1e293b;
+        }
+        
+        .image-content img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-content img:hover {
+            transform: scale(1.02);
+        }
+        
+        .video-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #fa4454;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            background: #0f172a;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-info h3 {
+            color: #1e293b;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .video-info p {
+            color: #6b7280;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-top: 1rem;
+        }
+        
+        .agent-tag {
+            display: inline-block;
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .map-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #2563eb;
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #fa4454, #ff4655);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #fa4454;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .reverse .content-grid {
+                direction: ltr;
+            }
+            
+            .video-gallery {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .video-info h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Valorant Gaming</h1>
+            <p>Tactical Shooter • Strategy • Teamwork</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="keyboards.html">Keyboards</a></li>
+            <li><a href="valorant.html">Valorant</a></li>
+            <li><a href="f1.html">F1 Racing</a></li>
+            <li><a href="football.html">Football</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="agents">
+            <h2>My Main Agents</h2>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>I specialize in duelist and controller agents that help the team secure wins.</p>
+                    <h3>Agent Preferences:</h3>
+                    <ul>
+                        <li><strong>Reyna</strong> - Main duelist for aggressive plays</li>
+                        <li><strong>Omen</strong> - Controller for map control</li>
+                        <li><strong>Pheonix</strong> - Secondary duelist for mobility</li>
+                        <li><strong>Fill</strong> - Filling the inneed</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="https://i.ytimg.com/vi/P3I4RrEaJpE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLALRDUCgQpAQql7eI9a1JAiqmkCFQ" alt="Valorant Agents">
+                </div>
+            </div>
+        </section>
+        
+        <section id="setup">
+            <h2>My Gaming Setup</h2>
+            <div class="content-grid reverse">
+                <div class="image-content">
+                    <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gaming Setup">
+                </div>
+                <div class="text-content">
+                    <h3>Hardware & Settings:</h3>
+                    <ul>
+                        <li><strong>Rank:</strong> Silver 2</li>
+                        <li><strong>DPI:</strong> 800 | Sensitivity: 0.4</li>
+                        <li><strong>Crosshair:</strong> Dot with outline</li>
+                        <li><strong>Monitor:</strong> 144Hz refresh rate</li>
+                        <li><strong>Mouse:</strong> VXE Dragonfly R1 Pro Max</li>
+                        <li><strong>Keyboard:</strong> Custom mechanical (Lucky 65)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="stats">
+            <h2>Game Statistics</h2>
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>Current Season Stats:</h3>
+                    <ul>
+                        <li><strong>Win Rate:</strong> 52%</li>
+                        <li><strong>Headshot Percentage:</strong> 20%</li>
+                        <li><strong>Favorite Map:</strong> Ascent</li>
+                        <li><strong>Best Agent:</strong> Reyna (1.2 K/D)</li>
+                        <li><strong>Play Time:</strong> 100+ hours</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Valorant Gameplay">
+                </div>
+            </div>
+        </section>
+        
+        <section class="video-section">
+            <h2 class="section-title">Some of My Valorant Clips</h2>
+            
+            <div class="video-gallery">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/6QMkesXV3nA" 
+                            title="Last Player Standing - Reyna 1v4 Clutch"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Last Player Standing ...</h3>
+                        <span class="agent-tag">Reyna</span>
+                        <span class="map-tag">Corrode</span>
+                        <div class="video-meta">
+                            <span>⏱️ 0:29</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/wTHczg1SRUc" 
+                            title="Omen Teleport Play - Split"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Omen Tp Play</h3>
+                        <span class="agent-tag">Omen</span>
+                        <span class="map-tag">Split</span>
+                        <div class="video-meta">
+                            <span>⏱️ 0:23</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/ePUz3oYqVrw" 
+                            title="Almost Clutch - Reyna Play"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Almost Clutch ..</h3>
+                        <span class="agent-tag">Reyna</span>
+                        <span class="map-tag">Sunset</span>
+                        <div class="video-meta">
+                            <span>⏱️ 0:56</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/NrnY_Qb8QMk" 
+                            title="Back Like I Never Left - Clove Play"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Back Like I Never Left .</h3>
+                        <span class="agent-tag">Clove</span>
+                        <span class="map-tag">Sunset</span>
+                        <div class="video-meta">
+                            <span>⏱️ 0:42</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/5IAOHMTZzjY" 
+                            title="Tiktok Sage Ace - Abyss"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Tiktok Sage</h3>
+                        <span class="agent-tag">Sage</span>
+                        <span class="map-tag">Abyss</span>
+                        <div class="video-meta">
+                            <span>⏱️ 0:28</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/ab7wI1SIdTU" 
+                            title="Brwak - Reyna Play"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Brwak</h3>
+                        <span class="agent-tag">Reyna</span>
+                        <span class="map-tag">Bind</span>
+                        <div class="video-meta">
+                            <span>⏱️ 0:36</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="back-button">← Back to Main Page</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Nattanon Teeralertwong M.3/3 no.3 - My Hobbies</p>
+    </footer>
+</body>
+</html>

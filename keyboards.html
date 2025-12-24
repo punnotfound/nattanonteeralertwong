@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Keyboards - My Hobby</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .keyboard-hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .keyboard-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .keyboard-specs {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spec-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .spec-card h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .spec-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .spec-label {
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .spec-value {
+            color: #6b7280;
+        }
+        
+        .keyboard-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+        
+        .keyboard-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .keyboard-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .keyboard-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .my-builds {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .build-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .build-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .build-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .build-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .build-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .build-info {
+            padding: 1.5rem;
+        }
+        
+        .build-info h3 {
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .build-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .build-specs {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .build-specs span {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+        
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            background: #0f172a;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-info h3 {
+            color: #1e293b;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .video-info p {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+        
+        nav {
+            background: #1e293b;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        nav a:hover {
+            background: #334155;
+        }
+        
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .keyboard-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .video-gallery {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            
+            .build-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="keyboard-hero">
+        <h1>Custom Mechanical Keyboards</h1>
+        <p>My Passion for Custom Builds, Switches, and Keycaps</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="keyboards.html">Keyboards</a></li>
+            <li><a href="valorant.html">Valorant</a></li>
+            <li><a href="f1.html">F1 Racing</a></li>
+            <li><a href="football.html">Football</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="builds">
+            <div class="my-builds">
+                <h2 class="section-title">Some of my Keyboards</h2>
+                
+                <div class="build-grid">
+                    <div class="build-card">
+                        <div class="build-image">
+                            <img src="images/keyboards/lucky65.jpg" alt="Lucky 65 Build">
+                        </div>
+                        <div class="build-info">
+                            <h3>Lucky 65</h3>
+                            <span class="build-tag">CURRENT DAILY DRIVER</span>
+                            <div class="build-specs">
+                                <span><strong>Switches:</strong> Forgot</span>
+                                <span><strong>Keycaps:</strong> LOGA Bangkok Midnight</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="build-card">
+                        <div class="build-image">
+                            <img src="images/keyboards/akko.jpg" alt="Akko Build">
+                        </div>
+                        <div class="build-info">
+                            <h3>Akko ACR 67</h3>
+                            <span class="build-tag">PINK BUILD</span>
+                            <div class="build-specs">
+                                <span><strong>Switches:</strong> Akko Cream Black Pro v3</span>
+                                <span><strong>Keycaps:</strong> Akko Tokyo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="build-card">
+                        <div class="build-image">
+                            <img src="images/keyboards/gmk.jpg" alt="GMK 67 Build">
+                        </div>
+                        <div class="build-info">
+                            <h3>GMK 67</h3>
+                            <span class="build-tag">BUDGET BUILD</span>
+                            <div class="build-specs">
+                                <span><strong>Switches:</strong> Akko Lavender Pro V3</span>
+                                <span><strong>Keycaps:</strong> GMK BoW</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="build-card">
+                        <div class="build-image">
+                            <img src="images/keyboards/keychron.jpg" alt="Keychron Build">
+                        </div>
+                        <div class="build-info">
+                            <h3>Keychron Q2</h3>
+                            <span class="build-tag">BLACK BUILD</span>
+                            <div class="build-specs">
+                                <span><strong>Switches:</strong> Gateron Milky Brown</span>
+                                <span><strong>Keycaps:</strong> GMK WoB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="build-card">
+                        <div class="build-image">
+                            <img src="images/keyboards/rk.jpg" alt="rk Build">
+                        </div>
+                        <div class="build-info">
+                            <h3>RK65</h3>
+                            <span class="build-tag">MINIMALIST</span>
+                            <div class="build-specs">
+                                <span><strong>Switches:</strong> Akko Silver v3</span>
+                                <span><strong>Keycaps:</strong> Matcha Green</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="build-card">
+                        <div class="build-image">
+                            <img src="images/keyboards/gmk67.jpg" alt="Zoom65 Build">
+                        </div>
+                        <div class="build-info">
+                            <h3>GMK67</h3>
+                            <span class="build-tag">2nd BUDGET</span>
+                            <div class="build-specs">
+                                <span><strong>Switches:</strong> Forgot</span>
+                                <span><strong>Keycaps:</strong> Minimalist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="keyboard-videos">
+            <h2 class="section-title">Keyboard Build Videos</h2>
+            
+            <div class="video-gallery">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/5yAmpVTTsOc" 
+                            title="Lucky 65 Keyboard Build"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Lucky 65</h3>
+                        <p>My daily driver custom mechanical keyboard build</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/ywax8_3RpoA" 
+                            title="Akko ACR67 Keyboard Build"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Akko ACR67</h3>
+                        <p>Pink-themed keyboard with Akko switches and keycaps</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/1GDjVeswSsc" 
+                            title="GMK67 Keyboard Build"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>GMK67</h3>
+                        <p>Budget-friendly custom keyboard build</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/GJpuBB00iH0" 
+                            title="Keychron Q2 Keyboard Build"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Keychron Q2</h3>
+                        <p>Premium black keyboard with Gateron switches</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="back-button">← Back to Main Page</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Nattanon Teeralertwong M.3/3 no.3 - Custom Keyboard Collection</p>
+    </footer>
+</body>
+</html>

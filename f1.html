@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Racing - My Passion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .f1-hero {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .f1-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .f1-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #fbbf24);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .f1-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #dc2626;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #dc2626, #f59e0b);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+        
+
+        .driver-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .driver-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid #dc2626;
+        }
+        
+        .driver-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.2);
+        }
+        
+        .driver-header {
+            padding: 1.5rem;
+            background: linear-gradient(to right, #dc2626, #b91c1c);
+            color: white;
+            text-align: center;
+        }
+        
+        .driver-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .driver-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+        
+        .driver-info {
+            padding: 1.5rem;
+        }
+        
+        .driver-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            flex: 1;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc2626;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        
+        .driver-team {
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+   
+        .race-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .race-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #dc2626;
+            transition: all 0.3s ease;
+        }
+        
+        .race-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .race-date {
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .race-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .race-circuit {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .race-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-upcoming {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-live {
+            background: #fee2e2;
+            color: #991b1b;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+
+        .mclaren-section {
+            background: linear-gradient(135deg, #ff8000 0%, #ff5800 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .mclaren-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .mclaren-section h2::after {
+            background: white;
+        }
+        
+        .mclaren-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+        
+        .mclaren-stat {
+            flex: 1;
+            min-width: 150px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .mclaren-stat .stat-value {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .mclaren-stat .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .f1-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto;
+        }
+        
+        .f1-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .f1-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .f1-image img:hover {
+            transform: scale(1.1);
+        }
+        
+
+        .back-button {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+        }
+        
+
+        @media (max-width: 768px) {
+            .f1-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mclaren-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .driver-stats {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="f1-hero">
+        <h1>Formula 1 Racing</h1>
+        <p>The Pinnacle of Motorsport - Speed, Strategy & Passion</p>
+    </header>
+    
+    <nav>
+        <ul>
+                   <li><a href="keyboards.html">Keyboards</a></li>
+            <li><a href="valorant.html">Valorant</a></li>
+            <li><a href="f1.html">F1 Racing</a></li>
+            <li><a href="football.html">Football</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="drivers">
+            <div class="section-container">
+                <h2 class="section-title">2025 Season Top Drivers</h2>
+                
+                <div class="driver-grid">
+
+                    <div class="driver-card">
+                        <div class="driver-header">
+                            <h3>Lando Norris</h3>
+                            <div class="driver-number">4</div>
+                        </div>
+                        <div class="driver-info">
+                            <div class="driver-team">McLaren Mercedes</div>
+                            <div class="driver-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value">7</div>
+                                    <div class="stat-label">Wins 2025</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">1</div>
+                                    <div class="stat-label">World Titles</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">44</div>
+                                    <div class="stat-label">Podiums</div>
+                                </div>
+                            </div>
+                            <p style="color: #6b7280; font-size: 0.9rem; line-height: 1.5; margin-top: 1rem;">
+                                My favorite driver - amazing racecraft and consistency. 2024 World Champion!
+                            </p>
+                        </div>
+                    </div>
+                    
+    
+                    <div class="driver-card">
+                        <div class="driver-header">
+                            <h3>Max Verstappen</h3>
+                            <div class="driver-number">1</div>
+                        </div>
+                        <div class="driver-info">
+                            <div class="driver-team">Red Bull Racing</div>
+                            <div class="driver-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value">7</div>
+                                    <div class="stat-label">Wins 2025</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">4</div>
+                                    <div class="stat-label">World Titles</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">71</div>
+                                    <div class="stat-label">Career Wins</div>
+                                </div>
+                            </div>
+                            <p style="color: #6b7280; font-size: 0.9rem; line-height: 1.5; margin-top: 1rem;">
+                                Dominant force in F1, incredible qualifier and race pace.
+                            </p>
+                        </div>
+                    </div>
+                    
+
+                    <div class="driver-card">
+                        <div class="driver-header">
+                            <h3>Oscar Piastri</h3>
+                            <div class="driver-number">81</div>
+                        </div>
+                        <div class="driver-info">
+                            <div class="driver-team">McLaren Mercedes</div>
+                            <div class="driver-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value">7</div>
+                                    <div class="stat-label">Wins 2025</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">0</div>
+                                    <div class="stat-label">World Titles</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">26</div>
+                                    <div class="stat-label">Podiums</div>
+                                </div>
+                            </div>
+                            <p style="color: #6b7280; font-size: 0.9rem; line-height: 1.5; margin-top: 1rem;">
+                                Future world champion - amazing rookie season in 2023.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="moments">
+            <div class="section-container">
+                <h2 class="section-title">Best Moments of 2025 (imo)</h2>
+                
+                <div class="race-grid">
+          
+                    <div class="race-card">
+                       
+                        <div class="race-name">Monaco Grand Prix</div>
+                        <div class="race-circuit">Monaco</div>
+                        <span class="race-status status-upcoming">Lando Norris sets a lap record of 1:09.954 , becoming the first driver ever to complete a lap under 70 seconds in monaco</span>
+                    </div>
+                    
+              
+                    <div class="race-card">
+                      
+                        <div class="race-name">Mexico Grand Prix</div>
+                        <div class="race-circuit">Mexico, Mexico City</div>
+                        <span class="race-status status-upcoming">Lando Norris had a dominant win at the 2025 Mexico City Grand Prix by around 30 seconds.</span>
+                    </div>
+                    
+
+                    <div class="race-card">
+                  
+                        <div class="race-name">Abu Dhabi Prix</div>
+                        <div class="race-circuit">United Arab Emirates, Abu Dhabi</div>
+                        <span class="race-status status-upcoming">Lando Norris won the F1 2025 season finale in Abu Dhabi, finishing ahead if Max Verstappen by 2 points.
+                        </span>
+                    </div>
+                    
+
+                
+        </section>
+        
+        <section id="mclaren">
+            <div class="mclaren-section">
+                <h2 class="section-title">My Team: McLaren Mercedes</h2>
+                <p>Papaya Orange Racing - Fighting for Championships since 1966</p>
+                
+                <div class="mclaren-stats">
+                    <div class="mclaren-stat">
+                        <div class="stat-value">10</div>
+                        <div class="stat-label">Constructors' Titles</div>
+                    </div>
+                    <div class="mclaren-stat">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Drivers' Titles</div>
+                    </div>
+                    <div class="mclaren-stat">
+                        <div class="stat-value">203</div>
+                        <div class="stat-label">Race Wins</div>
+                    </div>
+                    <div class="mclaren-stat">
+                        <div class="stat-value">1988</div>
+                        <div class="stat-label">Best Season (MP4/4)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="gallery">
+            <div class="section-container">
+                <h2 class="section-title">F1 Moments Gallery</h2>
+                
+                <div class="f1-images">
+                    <div class="f1-image">
+                        <img src="https://cdn.racingnews365.com/2025/Piastri/_1092x683_crop_center-center_85_none/Piastri-Norris-Verstappen-Spain.jpg?v=1748724744" alt="nor vs ver vs pia">
+                    </div>
+                    <div class="f1-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA7XxVD6lKWRCIDngEZSL5Yf_QnXxXf93dIg&s" alt="Moncao">
+                    </div>
+                    <div class="f1-image">
+                        <img src="https://d2n9h2wits23hf.cloudfront.net/image/v1/static/6057949432001/862d809f-9872-40e0-96b4-2aef75d50878/92cd1501-2719-4ba0-ab41-42cac43a8641/864x486/match/image.jpg" alt="nor vs pia">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="back-button">← Back to Main Page</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Nattanon Teeralertwong M.3/3 no.3 - Formula 1 Passion</p>
+    </footer>
+</body>
+</html>
